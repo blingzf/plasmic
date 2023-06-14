@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta http-equiv="Access-Control-Allow-Origin" content="*">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+        <link rel="stylesheet" href="css/base.css">
+        <link rel="stylesheet" href="css/index.css">
+        <link rel="stylesheet" href="css/richui.css">
+        <script src="js/adapt.js"></script>
+        <title>Sling</title>
+
+        <style>
+            body{
+                background: #F4F4F4;
+            }
+        </style> 
+        <script>
+            function getIP(json) {
+                window.ip = json.ip
+            }
+        </script>
+    </head>
+    <body>
+        <div id="app" class="computer">
+            <template v-if="!showLoading">
+                <div class="computer-content">
+                    <div class="computer-content__top">
+                        <div class="computer-download">
+                            <div class="computer-download__logo">
+                                <img src="images/logo.png" class="img">
+                            </div>
+                            <!-- 下载按钮 -->
+                            <div class="computer-download__btn">
+                                <ul>
+                                     <!-- ios按钮 -->
+                                    <li>
+                                         <!-- 国外ios -->
+                                        <img src="images/download_ios.png" class="img" @click="goToPage('https://apps.apple.com/us/app/sling-music/id1580362874')" v-if="isForeign">
+                                        <!-- 国内ios -->
+                                        <img src="images/download_ios.png" class="img" @click="goToPage('https://apps.apple.com/cn/app/sling-music/id1580362874')" v-else>
+                                    </li>
+                                    <!-- 安卓按钮 -->
+                                    <li>
+                                        <!-- 国内安卓 -->
+                                        <img src="images/download_android.png" class="img" v-if="!isForeign" @click="goToPage('https://internal.sling-music.com/sling/android/clockwork.apk')">
+                                        <!-- 国外安卓 -->
+                                        <img src="images/download_google.png" class="img" v-else @click="goToPage('https://play.google.com/store/apps/details?id=com.guowan.clockwork')">
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- 下载按钮 -->
+                            <!-- 扫码下载国内 -->
+                            <div class="computer-download__smxz" v-if="!isForeign">
+                                <img src="images/download_smxz.png" class="img">
+                                <img src="images/ewm.png" class="img smxz-ewm">
+                            </div>
+                            <!-- 扫码下载 -->
+                        </div>
+                        <div class="computer-phone computer-phone__foreign" v-if="isForeign">
+                            <img src="images/phone_foreign_pc.png" class="img">
+                        </div>
+                        <div class="computer-phone" v-else>
+                            <img src="images/phone.png" class="img">
+                        </div>
+                    </div>
+                    <div class="computer-content__bottom computer-content__bottom__foreign" v-if="isForeign">
+                        <div class="bottom-foreign__content">
+                            <ul>
+                                <li class="lis1">
+                                    <img src="images/pic_foreign.png" class="img">
+                                </li>
+                                <li class="lis2">
+                                    <img src="images/pic1_foreign.png" class="img">
+                                </li>
+                                <li class="lis3">
+                                    <img src="images/pic2_foreign.png" class="img">
+                                </li>
+                                <li class="lis4">
+                                    <img src="images/pic3_foreign.png" class="img">
+                                </li>
+                                <li class="lis5">
+                                    <img src="images/pic4_foreign.png" class="img">
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="computer-content__bottom" v-else>
+                        <ul>
+                            <li>
+                                <img src="images/computer_pic.png" class="img">
+                            </li>
+                            <li>
+                                <img src="images/computer_pic1.png" class="img">
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="computer-copyright" v-if="!isForeign">
+                        <div class="copyright-word">
+                            <p class="normal-word">©2021 版权所有 安徽讯飞未来智能科技有限公司</p>
+														<div style="
+														    display: flex;
+														    align-items: center;
+														    margin: -4px 0 4px 0;
+														    color: rgba(111, 104, 104, .8);
+														"><img src="https://www.visionintelligence.info/img/gongan.png" style="
+														    width: 14px;
+														    height: 14px;
+														"><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=34019202002086" style="
+    text-decoration: none;
+    color: rgba(111, 104, 104, .8);
+">皖公网安备 34019202002086号</a></div>
+<a target="blank" href="https://beian.miit.gov.cn/">皖ICP备2021014072号-2</a>
+                            <!-- <p class="normal-word">此处是备案号</p> -->
+                        </div>
+                        <div class="copyright-img">
+                            <img src="images/email.png" alt="" @click="goToPage('mailto:sling@vision-intelligence.tech')">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="computer-copyright" v-if="isForeign">
+                    <div class="copyright-word">
+                        <p class="normal-word">Copyright © 2021 vision intelligence Co.,Ltd</p>
+                        <p><span @click="goToPage('https://iflybudstest.iflysec.com/slingweb/clockworkDisclaimer/en/use/index.html')">Terms of Use</span> · <span @click="goToPage('https://iflybudstest.iflysec.com/slingweb/PrivacyStatement/en/index.html')">Privacy Policy</span></p>
+                    </div>
+                    <div class="copyright-img">
+                        <img src="images/email.png" alt="" @click="goToPage('mailto:sling@vision-intelligence.tech')">
+                        <img src="images/twitter.png" alt="" @click="goToPage('https://twitter.com/Sling_Music')">
+                        <img src="images/ins.png" alt="" @click="goToPage('https://www.instagram.com/slingovo/')">
+                    </div>
+                </div>
+            </template>
+
+            <!-- 加载中 -->
+            <div id="richui-loading" v-if="showLoading">
+                <div class="richui-loadingWrap"></div>
+                <div class="richui-loadingTip richui-tipInAnimate"><span class="richui-loadingIcon"></span><span
+                        class="richui-loadingText"></span></div>
+            </div>
+        </div>
+    </body>
+    <script src="js/vue2.6.1.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/easydialog.min.js"></script>
+    <script src="js/richComponents.js"></script>
+    <script src="js/richui.js"></script>
+    <script src="crypto/core.js"></script>
+    <script src="crypto/enc-base64.js"></script>
+    <script src="crypto/sha1.js"></script>
+    <script type="application/javascript" src="https://api.ipify.org?format=jsonp&callback=getIP"></script>
+    <script type="text/javascript">
+
+        adapt(375)
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                showLoading: true,
+                isForeign: false,
+                isPc: true
+            },
+            mounted: function () {
+                var initWidth = $(window).width()
+                initWidth <= 750 && (this.isPc = false)
+                if(!this.isPc){
+                    window.location = 'index.html' 
+                }else{
+                    this.getData()
+                }
+            },
+            methods: {
+                getData: function(){
+                    var that = this
+                    var url = 'https://service-p53fd021-1257598706.ap-shanghai.apigateway.myqcloud.com/release/ip'
+                    var param = {
+                        ip: window.ip
+                    }
+                    this.ajax(url, param).done(function(data, status){
+                        that.showLoading = false
+                        if(data.code == 200){
+                            that.isForeign = !(data.data.country == '中国')
+                            document.title =  that.isForeign ? 'Sling - Music Streaming without Ads' : 'Sling - 海量曲库，AI点歌'
+                        }else{
+                            openWindow1(data.message)
+                        }
+                        that.$nextTick(function(){
+                            that.isForeign && that.setAnimate()
+                        })
+                    })
+                },
+                ajax: function(url, params) {
+                    // alert(url)
+                    var secretId = "AKIDoid9hoyyhm0xftwgceko0pjz2rh6n6675twy";
+                    // 云市场分配的密钥Key
+                    var secretKey = "laYgR30FRX6VpO3CCzdehy2TTME6VnhyPl5u15lg";
+                    var source = "market";
+
+                    // 签名
+                    var datetime = (new Date()).toGMTString();
+                    var signStr = "x-date: " + datetime + "\n" + "x-source: " + source;
+                    var sign = CryptoJS.enc.Base64.stringify(CryptoJS.HmacSHA1(signStr, secretKey))
+                    var auth = 'hmac id="' + secretId + '", algorithm="hmac-sha1", headers="x-date x-source", signature="' + sign + '"';
+                    var headers = {
+                        "X-Source": source,
+                        "X-Date": datetime,
+                        "Authorization": auth,
+                        "Content-Type" : "application/x-www-form-urlencoded"
+                    }
+                    return $.ajax({
+                        dataType: "json",
+                        url: url,
+                        data: params,
+                        cache: false,
+                        type: "GET",
+                        headers: headers,
+                        error: ajaxError
+                    });
+                },
+                setAnimate: function(){
+                    $('.bottom-foreign__content').on('scroll',function(){
+                        var scrollHight = $('.bottom-foreign__content').scrollTop()
+                        for(var i = 1; i < $('.bottom-foreign__content li').length; i++){
+                            if(scrollHight > (390 * (i-1)) + (56 - 12 * (i-1)) && scrollHight <= 390*i+(44-12*(i-1))){
+                                //390 - 12 
+                                //
+                                var opacity = (1 - (scrollHight - ((390 * (i-1)) + (56 - 12 * (i-1)))) / (390-12)).toFixed(1)
+                                $('.bottom-foreign__content li').eq(i).removeClass('lis'+(i+1))
+                                $('.bottom-foreign__content li').eq(i-1).css({
+                                    opacity: opacity
+                                })
+                            }
+                            if(scrollHight <= (390 * (i-1)) + (56 - 12 * (i-1))){
+                                $('.bottom-foreign__content li').eq(i-1).css({
+                                    opacity: 1
+                                }).end().eq(i).addClass('lis'+(i+1))
+                            }
+                            if(scrollHight > 390*i+(44-12*(i-1))){
+                                $('.bottom-foreign__content li').eq(i-1).css({
+                                    opacity: 0
+                                })
+                            }
+                        }
+                    })
+                },
+                goToPage: function(url){
+                    window.location.href = url
+                }
+            }
+        })
+    </script>
+</html>

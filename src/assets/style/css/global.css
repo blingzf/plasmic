@@ -1,0 +1,177 @@
+/* 
+ * @Description:
+ * @Autor: ZF
+ * @Date: 2021-07-09
+ * @LastEditors: ZF
+ * @LastEditTime: 2022-04-06
+ */
+@media screen and (max-width: 428px){
+	.cart-img{
+		height: 160px;
+		width: 100%;
+	}
+	.product-img {
+		transform: scale(0.5);
+		margin: -44px -295px;
+	}
+}
+@media screen and (min-width: 428px) and (max-width: 768px){
+	.product-img {
+		transform: scale(.75);
+		margin: -20px -147px;
+	}
+	.cart-img{
+		height: 214px;
+		width: 100%;
+	}
+}
+@media screen and (min-width: 768px) and (max-width: 976px){
+	.cart-img{
+		height: 184px;
+		width: 100%;
+	}
+}
+@media screen and (min-width: 976px) and (max-width: 1280px){
+	.cart-img{
+		height: 290px;
+		width: 580px;
+		margin: 0 -70px;
+	}
+}
+@media screen and (min-width: 1280px){
+	.cart-img{
+		height: 290px;
+		width: 100%;
+	}
+}
+@font-face {
+  font-family: 'iconfont';  /* Project id 3204774 */
+  src: url('//at.alicdn.com/t/font_3204774_y72abp40u.woff2?t=1646732571715') format('woff2'),
+       url('//at.alicdn.com/t/font_3204774_y72abp40u.woff?t=1646732571715') format('woff'),
+       url('//at.alicdn.com/t/font_3204774_y72abp40u.ttf?t=1646732571715') format('truetype');
+}
+@font-face {
+  font-family: 'AlibabaPuHuiTi';
+  font-display: swap;
+  src: url('//at.alicdn.com/t/webfont_q4gjvgh4z2.eot'); /* IE9*/
+  src: url('//at.alicdn.com/t/webfont_q4gjvgh4z2.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('//at.alicdn.com/t/webfont_q4gjvgh4z2.woff2') format('woff2'),
+  url('//at.alicdn.com/t/webfont_q4gjvgh4z2.woff') format('woff'), /* chrome、firefox */
+  url('//at.alicdn.com/t/webfont_q4gjvgh4z2.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+  url('//at.alicdn.com/t/webfont_q4gjvgh4z2.svg#Alibaba-PuHuiTi-Regular') format('svg'); /* iOS 4.1- */
+}
+.icon {
+	color: #03a9f4;
+	margin-left: 5px;
+}
+.fade-enter-active {
+  transition: 0.3s;
+}
+
+.fade-leave-active {
+  transition: all 0.3s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+
+.fade-enter-from,
+.fade-leave-to {
+	transform: translateX(-20px);
+  opacity: 0;
+}
+.iconfont{
+    font-family:"iconfont" !important;
+    font-size:16px;font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+	}
+	/* flex垂直 */
+.flexC{
+	display: flex;
+	flex-direction: column;
+}
+	/* flex垂直全居中*/
+.flexCC{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+/* flex垂直高居中 */
+.flexCHC{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+/* flex垂直水平居中 */
+.flexCWC{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+/* flex水平 */
+.flexR{
+	display: flex;
+	flex-direction: row;
+}
+/* flex水平全居中 */
+.flexRC{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+}
+/* flex水平垂直居中 */
+.flexRHC{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+/* flex水平水平居中 */
+.flexRWC{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+/* flex水平对边 */
+.flexRB{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+/* 水平外边距2px */
+.margin-w-2 {
+	margin: 0 2px;
+}
+/* 水平外边距10px */
+.margin-w-10 {
+	margin: 0 10px;
+}
+.all-100{
+	width: 100%;
+	height: 100%;
+}
+.product-img {
+	width: 1179px;
+	height: 152px;
+}
+.service-img {
+	width: 554px;
+}
+.cart-img {
+	transition: 500ms;
+}
+.cart-img:hover {
+	transform: scale(1.1);
+}
+.dark{
+	background-color: #ffffff;
+	color: #000000;
+}
+.light{
+	background-color: #000000;
+	color: #FFFFFF;
+}
+.w-h-100{
+	width: 100%;
+	height: 100%;
+}
